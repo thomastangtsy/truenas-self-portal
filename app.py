@@ -7,7 +7,7 @@ from truenas import TrueNAS
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.urandom(24)
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=31)
-app.config["TRUENAS"] = TrueNAS(config["endpoint"], config["api_key"], config["ignore_invalid_certificate"] != "0")
+app.config["TRUENAS"] = TrueNAS(config["endpoint"], config["api_key"], config["ignore_invalid_certificate"] != "1")
 
 @app.route("/")
 def index():
@@ -15,7 +15,7 @@ def index():
         return redirect("/login")
     return render_template("index.html")
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
     errors = []
     if has_logged_in():
