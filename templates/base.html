@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='vendor/css/bootstrap.min.css') }}"
+    />
+    {% block stylesheet %}{% endblock %}
+    <title>{% block title %}{% endblock %} | TrueNAS Self Portal</title>
+  </head>
+  <body>
+    {% block main %}{% endblock %}
+    <script src="{{ url_for('static', filename='vendor/js/bootstrap.bundle.min.js') }}"></script>
+    {% block javascript %}{% endblock %}
+  </body>
+</html>
