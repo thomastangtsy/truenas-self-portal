@@ -7,6 +7,10 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='vendor/css/bootstrap.min.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/global.css') }}"
+    />
     {% block stylesheet %}{% endblock %}
     <title>{% block title %}{% endblock %} | TrueNAS Self Portal</title>
   </head>

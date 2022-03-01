@@ -25,6 +25,7 @@ def login():
         validate = app.config["TRUENAS"].validate_password(request.form["username"], request.form["password"])
 
         if validate:
+            session.clear()
             user_info = app.config["TRUENAS"].get_user_info(request.form["username"])
             session["user_id"] = user_info["id"]
             session["username"] = user_info["username"]
@@ -32,6 +33,11 @@ def login():
         
         errors.append("Incorrect username or password.")
     return render_template("login.html", errors=errors)
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return render_template("logout.html")
 
 def has_logged_in():
     return session.get("username", False) != False

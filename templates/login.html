@@ -2,13 +2,11 @@
 
 {% block title %}Login{% endblock %}
 
-{% block stylesheet %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
-{% endblock %}
+{% block stylesheet %}{% endblock %}
 
 {% block main %}
 <main class="container" method="">
-  <div class="row d-flex justify-content-center align-items-center text-center truenas-login-form">
+  <div class="row d-flex justify-content-center align-items-center text-center viewport-full-height">
     <form class="col-sm-6 card" method="post">
       <div class="card-body">
         <h3 calss="card-title">TrueNAS Self Portal</h3>

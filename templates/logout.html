@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Logout{% endblock %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block main %}
+<main class="container">
+  <div class="row d-flex justify-content-center align-items-center text-center viewport-full-height">
+    <div class="col-sm-6">
+      <div class="alert alert-success mb-3" role="alert">You are logged out.</div>
+      <a href="{{ url_for('login') }}">Login again</a>
+    </div>
+  </div>
+</main>
+{% endblock %} 
+
+{% block javascript %} 
+{% endblock %}
