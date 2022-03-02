@@ -36,6 +36,7 @@ class TrueNAS:
         }
         r = requests.put(
             self.endpoint + "/api/v2.0/user/id/" + id,
+            headers=self.requests_header,
             json=body,
             verify=self.verify_certificate
         )
