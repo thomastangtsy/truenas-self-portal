@@ -6,6 +6,21 @@
 {% endblock %}
 
 {% block main %}
+<main class="container">
+  <div class="row d-flex justify-content-center align-items-center vh-100">
+    <div class="col-sm-6 card">
+      <div class="card-body w-100">
+        <div class="text-center">
+          <h3 calss="card-title">TrueNAS Self Portal</h3>
+        </div>
+      </div>
+      <div class="list-group list-group-flush">
+        <a class="list-group-item ligt-group-item-action" href="#">Update password</a>
+        <a class="list-group-item ligt-group-item-action" href="{{ url_for('logout') }}">Logout</a>
+      </div>
+    </div>
+  </div>
+</main>
 {% endblock %} 
 
 {% block javascript %} 
