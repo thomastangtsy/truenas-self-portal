@@ -44,7 +44,7 @@ class TrueNAS:
 
     def get_user_info(self, username):
         params = {
-            username: username
+            "username": username
         }
         r = requests.get(
             self.endpoint + "/api/v2.0/user",

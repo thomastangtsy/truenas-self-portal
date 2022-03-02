@@ -23,12 +23,13 @@ def login():
 
     if request.method == "POST" and "username" in request.form and "password" in request.form:
         validate = app.config["TRUENAS"].validate_password(request.form["username"], request.form["password"])
+        print("username: " + request.form["username"])
 
         if validate:
             session.clear()
             user_info = app.config["TRUENAS"].get_user_info(request.form["username"])
-            session["user_id"] = user_info["id"]
-            session["username"] = user_info["username"]
+            session["user_id"] = user_info[0]["id"]
+            session["username"] = user_info[0]["username"]
             return redirect("/")
         
         errors.append("Incorrect username or password.")
