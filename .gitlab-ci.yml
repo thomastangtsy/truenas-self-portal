@@ -16,7 +16,7 @@ include:
 stages:
   - build
 
-build:
+build:image:
   stage: build
   image:
     name: gcr.io/kaniko-project/executor:debug
@@ -27,3 +27,17 @@ build:
     - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:latest
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
+
+container_scanning:
+  stage: build
+  needs:
+    - build:image
+  variables:
+    CS_IMAGE: $CI_REGISTRY_IMAGE:latest
+    CS_REGISTRY_USER: "$CI_REGISTRY_USER"
+    CS_REGISTRY_PASSWORD: "$CI_REGISTRY_PASSWORD"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+
+dependency_scanning:
+  stage: build
